@@ -1,6 +1,5 @@
-import Image from "next/image";
-import Link from "next/link";
 import { Mail, Phone, MapPin, MessageCircle } from "lucide-react";
+import { Logo } from "@/components/logo/logo";
 import { NAV_LINKS, SITE, SOCIAL_LINKS, whatsappUrl } from "@/lib/constants";
 
 export function Footer() {
@@ -15,15 +14,7 @@ export function Footer() {
         <div className="grid gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <Link href="/" aria-label={`${SITE.name} — Página inicial`}>
-              <Image
-                src="/logo.png"
-                alt={SITE.name}
-                width={120}
-                height={40}
-                className="h-8 w-auto"
-              />
-            </Link>
+            <Logo className="h-12 w-auto sm:h-14" />
             <p className="mt-4 max-w-xs text-sm leading-relaxed text-foreground-muted">
               A nova geração da telefonia móvel. Conectividade premium em todo o Brasil.
             </p>

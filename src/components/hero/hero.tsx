@@ -167,7 +167,7 @@ function HeroVisual() {
 export function Hero() {
   return (
     <section
-      className="relative flex min-h-screen items-center overflow-hidden pt-16"
+      className="relative flex min-h-screen items-center overflow-hidden pt-20"
       aria-label="Hero"
     >
       <div className="digital-grid absolute inset-0" />

@@ -1,12 +1,11 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { NAV_LINKS, SITE, whatsappUrl } from "@/lib/constants";
+import { Logo } from "@/components/logo/logo";
+import { NAV_LINKS, whatsappUrl } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -40,19 +39,10 @@ export function Navbar() {
         )}
       >
         <nav
-          className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
+          className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
           aria-label="Navegação principal"
         >
-          <Link href="/" className="relative z-10 flex items-center" aria-label={`${SITE.name} — Página inicial`}>
-            <Image
-              src="/logo.png"
-              alt={SITE.name}
-              width={120}
-              height={40}
-              className="h-8 w-auto sm:h-9"
-              priority
-            />
-          </Link>
+          <Logo priority className="h-11 w-auto sm:h-12 lg:h-14" />
 
           {/* Desktop nav */}
           <ul className="hidden items-center gap-8 lg:flex">

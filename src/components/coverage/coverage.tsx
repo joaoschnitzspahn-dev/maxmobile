@@ -2,109 +2,106 @@
 
 import { motion } from "framer-motion";
 import { MapPin } from "lucide-react";
-import { FadeUp } from "@/components/animations/fade-up";
-
-const COVERAGE_POINTS = [
-  { x: 35, y: 45, label: "Norte", delay: 0 },
-  { x: 42, y: 38, label: "Nordeste", delay: 0.2 },
-  { x: 38, y: 58, label: "Centro-Oeste", delay: 0.4 },
-  { x: 48, y: 72, label: "Sudeste", delay: 0.6 },
-  { x: 40, y: 82, label: "Sul", delay: 0.8 },
-];
+import {
+  BRAZIL_STATES,
+  BRAZIL_VIEWBOX,
+  COVERAGE_CONNECTIONS,
+  COVERAGE_POINTS,
+} from "./brazil-map-data";
 
 function BrazilMap() {
   return (
     <svg
-      viewBox="0 0 400 450"
-      className="h-full w-full max-w-md mx-auto"
+      viewBox={BRAZIL_VIEWBOX}
+      className="mx-auto h-full w-full max-w-md"
       aria-label="Mapa de cobertura do Brasil"
       role="img"
+      preserveAspectRatio="xMidYMid meet"
     >
       <defs>
-        <linearGradient id="mapGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#F31623" stopOpacity="0.15" />
-          <stop offset="100%" stopColor="#FF4B5B" stopOpacity="0.05" />
+        <linearGradient id="brazilFill" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stopColor="#F31623" stopOpacity="0.12" />
+          <stop offset="100%" stopColor="#FF4B5B" stopOpacity="0.04" />
         </linearGradient>
-        <filter id="glow">
-          <feGaussianBlur stdDeviation="3" result="coloredBlur" />
+        <filter id="dotGlow">
+          <feGaussianBlur stdDeviation="2.5" result="blur" />
           <feMerge>
-            <feMergeNode in="coloredBlur" />
+            <feMergeNode in="blur" />
             <feMergeNode in="SourceGraphic" />
           </feMerge>
         </filter>
       </defs>
 
-      {/* Brazil simplified shape */}
+      <g fill="url(#brazilFill)" stroke="rgba(243, 22, 35, 0.35)" strokeWidth="0.8">
+        {BRAZIL_STATES.map((state, index) => (
+          <motion.path
+            key={state.id}
+            d={state.path}
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.4, delay: index * 0.02 }}
+          />
+        ))}
+      </g>
+
       <motion.path
-        d="M 180 30 
-           C 200 25, 220 35, 230 50
-           C 245 55, 260 70, 255 90
-           C 270 100, 285 120, 280 145
-           C 290 160, 295 180, 285 200
-           C 280 220, 270 240, 260 260
-           C 250 280, 240 300, 230 320
-           C 220 340, 210 360, 200 380
-           C 190 400, 175 410, 160 400
-           C 150 390, 140 370, 135 350
-           C 130 330, 125 310, 120 290
-           C 115 270, 110 250, 105 230
-           C 100 210, 95 190, 90 170
-           C 85 150, 80 130, 85 110
-           C 90 90, 100 70, 115 55
-           C 130 40, 150 30, 180 30 Z"
-        fill="url(#mapGrad)"
-        stroke="rgba(243, 22, 35, 0.3)"
-        strokeWidth="1.5"
+        d={BRAZIL_STATES.map((s) => s.path).join(" ")}
+        fill="none"
+        stroke="rgba(243, 22, 35, 0.55)"
+        strokeWidth="1.2"
         initial={{ pathLength: 0, opacity: 0 }}
         whileInView={{ pathLength: 1, opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 2, ease: "easeInOut" }}
+        transition={{ duration: 2.2, ease: "easeInOut" }}
       />
 
-      {/* Coverage dots */}
+      {COVERAGE_CONNECTIONS.map((path, index) => (
+        <motion.path
+          key={path}
+          d={path}
+          fill="none"
+          stroke="rgba(243, 22, 35, 0.22)"
+          strokeWidth="0.8"
+          strokeDasharray="3 4"
+          initial={{ pathLength: 0, opacity: 0 }}
+          whileInView={{ pathLength: 1, opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 1.8, delay: 0.8 + index * 0.2 }}
+        />
+      ))}
+
       {COVERAGE_POINTS.map((point) => (
-        <g key={point.label}>
+        <g key={point.id}>
           <motion.circle
-            cx={`${point.x}%`}
-            cy={`${point.y}%`}
-            r="6"
+            cx={point.cx}
+            cy={point.cy}
+            r="5"
             fill="#F31623"
-            filter="url(#glow)"
+            filter="url(#dotGlow)"
             initial={{ scale: 0, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: point.delay + 0.5 }}
+            transition={{ duration: 0.45, delay: point.delay + 0.6 }}
           />
           <motion.circle
-            cx={`${point.x}%`}
-            cy={`${point.y}%`}
-            r="12"
+            cx={point.cx}
+            cy={point.cy}
+            r="10"
             fill="none"
             stroke="#F31623"
-            strokeWidth="0.5"
-            initial={{ scale: 0, opacity: 0 }}
-            animate={{ scale: [1, 2, 1], opacity: [0.6, 0, 0.6] }}
+            strokeWidth="0.6"
+            initial={{ scale: 0.6, opacity: 0 }}
+            animate={{ scale: [1, 2.2, 1], opacity: [0.5, 0, 0.5] }}
             transition={{
               duration: 3,
               repeat: Infinity,
               delay: point.delay,
+              ease: "easeOut",
             }}
           />
         </g>
       ))}
-
-      {/* Connection lines between points */}
-      <motion.path
-        d="M 140 200 Q 160 180 168 171 M 168 171 Q 190 160 192 261 M 192 261 Q 200 290 160 360"
-        fill="none"
-        stroke="rgba(243, 22, 35, 0.2)"
-        strokeWidth="0.8"
-        strokeDasharray="4 4"
-        initial={{ pathLength: 0 }}
-        whileInView={{ pathLength: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 2, delay: 1 }}
-      />
     </svg>
   );
 }
@@ -118,7 +115,12 @@ export function Coverage() {
     >
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20">
-          <FadeUp>
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+          >
             <span className="text-xs font-semibold uppercase tracking-[0.2em] text-primary">
               Cobertura
             </span>
@@ -129,7 +131,7 @@ export function Coverage() {
               Conectado em{" "}
               <span className="gradient-text-red">todo o Brasil</span>
             </h2>
-            <p className="mt-4 text-foreground-muted leading-relaxed">
+            <p className="mt-4 leading-relaxed text-foreground-muted">
               Infraestrutura robusta com presença em milhares de municípios.
               Do Amazonas ao Rio Grande do Sul, a MAX MOBILE garante
               conectividade onde você estiver.
@@ -153,20 +155,27 @@ export function Coverage() {
                 </div>
               ))}
             </div>
-          </FadeUp>
+          </motion.div>
 
-          <FadeUp delay={0.2}>
+          <motion.div
+            initial={{ opacity: 0, y: 32 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.6, delay: 0.15, ease: [0.22, 1, 0.36, 1] }}
+          >
             <div className="relative">
               <div className="absolute inset-0 rounded-3xl bg-primary/5 blur-3xl" />
-              <div className="relative glass rounded-3xl p-8">
-                <BrazilMap />
+              <div className="relative glass rounded-3xl p-6 sm:p-8">
+                <div className="aspect-[613/639] w-full">
+                  <BrazilMap />
+                </div>
                 <div className="mt-4 flex items-center justify-center gap-2 text-sm text-foreground-muted">
                   <MapPin className="h-4 w-4 text-primary" />
                   Cobertura nacional ativa
                 </div>
               </div>
             </div>
-          </FadeUp>
+          </motion.div>
         </div>
       </div>
     </section>
