@@ -29,58 +29,69 @@ export function Plans() {
             Escolha o plano ideal
           </h2>
           <p className="mt-4 text-foreground-muted">
-            Sem fidelidade. Sem taxas escondidas. Transparência total.
+            Sem fidelidade. Internet sem cortes. Portabilidade com +5 GB todo mês.
           </p>
         </FadeUp>
 
-        <StaggerContainer className="grid gap-6 lg:grid-cols-3">
+        <StaggerContainer className="grid gap-6 sm:grid-cols-2 xl:grid-cols-5">
           {PLANS.map((plan) => (
             <StaggerItem key={plan.name}>
               <motion.div
                 whileHover={{ scale: 1.02, y: -4 }}
                 transition={{ duration: 0.3 }}
                 className={cn(
-                  "relative flex h-full flex-col overflow-hidden rounded-2xl p-8 transition-all duration-500",
+                  "relative flex h-full flex-col overflow-hidden rounded-2xl p-6 transition-all duration-500 lg:p-7",
                   plan.popular
                     ? "border border-primary/40 bg-gradient-to-b from-primary/10 to-background glass glow-red-sm"
                     : "glass hover:border-primary/20 hover:glow-red-sm"
                 )}
               >
                 {plan.popular && (
-                  <div className="absolute right-4 top-4 flex items-center gap-1 rounded-full bg-primary px-3 py-1 text-xs font-semibold text-white">
+                  <div className="absolute right-3 top-3 flex items-center gap-1 rounded-full bg-primary px-2.5 py-1 text-[10px] font-semibold text-white">
                     <Star className="h-3 w-3 fill-white" />
-                    Mais popular
+                    Popular
                   </div>
                 )}
 
-                <div className="mb-6">
-                  <h3 className="font-display text-xl font-bold text-white">
+                <div className="mb-5">
+                  <h3 className="font-display text-lg font-bold text-white">
                     {plan.name}
                   </h3>
-                  <div className="mt-4 flex items-baseline gap-1">
+                  <div className="mt-3 flex items-baseline gap-1">
                     <span className="text-sm text-foreground-muted">R$</span>
-                    <span className="font-display text-4xl font-bold text-white">
+                    <span className="font-display text-3xl font-bold text-white">
                       {plan.price}
                     </span>
                     <span className="text-sm text-foreground-muted">/mês</span>
                   </div>
                 </div>
 
-                <div className="mb-6 space-y-3 border-y border-white/8 py-6">
-                  <div className="flex items-center justify-between">
+                <div className="mb-5 space-y-2 border-y border-white/8 py-5">
+                  <div className="flex items-center justify-between gap-2">
                     <span className="text-sm text-foreground-muted">Internet</span>
                     <span className="font-semibold text-white">{plan.internet}</span>
                   </div>
-                  <div className="flex items-center justify-between">
+                  <p className="text-xs text-foreground-muted">{plan.internetDetail}</p>
+                  <div className="flex items-center justify-between gap-2">
                     <span className="text-sm text-foreground-muted">Minutos</span>
                     <span className="font-semibold text-white">{plan.minutes}</span>
                   </div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-sm text-foreground-muted">SMS</span>
+                    <span className="font-semibold text-white">{plan.sms}</span>
+                  </div>
+                  <p className="pt-1 text-xs font-medium text-primary">
+                    {plan.portabilityBonus}
+                  </p>
                 </div>
 
-                <ul className="mb-8 flex-1 space-y-3">
+                <ul className="mb-6 flex-1 space-y-2.5">
                   {plan.benefits.map((benefit) => (
-                    <li key={benefit} className="flex items-center gap-2 text-sm text-foreground-muted">
-                      <Check className="h-4 w-4 shrink-0 text-primary" />
+                    <li
+                      key={benefit}
+                      className="flex items-start gap-2 text-sm text-foreground-muted"
+                    >
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                       {benefit}
                     </li>
                   ))}
@@ -92,7 +103,9 @@ export function Plans() {
                   asChild
                 >
                   <a
-                    href={whatsappUrl(`Olá! Tenho interesse no plano ${plan.name} da MAX MOBILE.`)}
+                    href={whatsappUrl(
+                      `Olá! Tenho interesse no plano ${plan.name} (${plan.internet}) da MAX MOBILE.`
+                    )}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -103,6 +116,16 @@ export function Plans() {
             </StaggerItem>
           ))}
         </StaggerContainer>
+
+        <FadeUp className="mt-8 text-center">
+          <p className="text-xs text-foreground-muted">
+            * Ligações ilimitadas locais e LDN com CSP 41, conforme{" "}
+            <a href="/termo-smp" className="text-primary hover:underline">
+              Termo SMP
+            </a>
+            . Valores sujeitos a alteração.
+          </p>
+        </FadeUp>
       </div>
     </section>
   );

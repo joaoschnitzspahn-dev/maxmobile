@@ -53,7 +53,7 @@ export function CTA() {
                   className="border-white/30 text-white hover:bg-white/10"
                   asChild
                 >
-                  <a href="#planos">
+                  <a href="/#planos">
                     Ver planos
                     <ArrowRight className="h-4 w-4" />
                   </a>

@@ -46,6 +46,26 @@ body {
   overflow-x: hidden;
 }
 
+/* Texto corrido justificado */
+main p,
+footer p,
+main li.text-foreground-muted {
+  text-align: justify;
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
+/* UI compacta — sem justificar */
+nav p,
+button p,
+p.text-xs,
+p[class*="text-[8px]"],
+p[class*="text-[9px]"],
+p[class*="text-[10px]"] {
+  text-align: inherit;
+  hyphens: manual;
+}
+
 ::selection {
   background: rgba(243, 22, 35, 0.35);
   color: #ffffff;

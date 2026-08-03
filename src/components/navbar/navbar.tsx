@@ -71,7 +71,7 @@ export function Navbar() {
               </a>
             </Button>
             <Button size="sm" asChild>
-              <a href="#planos">Contratar</a>
+              <a href="/#planos">Contratar</a>
             </Button>
           </div>
 
@@ -140,7 +140,7 @@ export function Navbar() {
                   </a>
                 </Button>
                 <Button asChild>
-                  <a href="#planos" onClick={() => setMobileOpen(false)}>
+                  <a href="/#planos" onClick={() => setMobileOpen(false)}>
                     Contratar
                   </a>
                 </Button>

@@ -67,7 +67,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href={`tel:${SITE.phone.replace(/\D/g, "")}`}
+                  href={`tel:${SITE.phoneRaw}`}
                   className="flex items-center gap-2 text-sm text-foreground-muted transition-colors hover:text-white"
                 >
                   <Phone className="h-4 w-4 text-primary" />
@@ -107,12 +107,18 @@ export function Footer() {
           <p className="text-xs text-foreground-muted">
             © {currentYear} {SITE.name}. Todos os direitos reservados.
           </p>
-          <div className="flex gap-6">
-            <a href="#" className="text-xs text-foreground-muted hover:text-white transition-colors">
-              Política de Privacidade
+          <div className="flex flex-wrap justify-center gap-6">
+            <a
+              href="/termo-smp"
+              className="text-xs text-foreground-muted transition-colors hover:text-white"
+            >
+              Termo SMP
             </a>
-            <a href="#" className="text-xs text-foreground-muted hover:text-white transition-colors">
-              Termos de Uso
+            <a
+              href="/termo-smp#privacidade"
+              className="text-xs text-foreground-muted transition-colors hover:text-white"
+            >
+              Política de Privacidade
             </a>
           </div>
         </div>

@@ -9,7 +9,7 @@ import { SITE, whatsappUrl } from "@/lib/constants";
 
 function HeroVisual() {
   return (
-    <div className="relative mx-auto h-[420px] w-full max-w-lg lg:h-[520px]">
+    <div className="relative mx-auto h-[420px] w-full max-w-lg lg:h-[520px] [&_p]:text-center [&_p]:hyphens-none">
       {/* Glow backdrop */}
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="h-64 w-64 rounded-full bg-primary/20 blur-[80px]" />
@@ -120,7 +120,7 @@ function HeroVisual() {
         >
           <Wifi className="h-4 w-4 text-primary" />
           <div>
-            <p className="text-[10px] font-semibold text-white">50 GB</p>
+            <p className="text-[10px] font-semibold text-white">45 GB</p>
             <p className="text-[8px] text-foreground-muted">Alta velocidade</p>
           </div>
         </motion.div>
@@ -216,7 +216,7 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.3 }}
           >
             <Button size="lg" asChild>
-              <a href="#planos">
+              <a href="/#planos">
                 Ver planos
                 <ArrowRight className="h-4 w-4" />
               </a>
@@ -241,9 +241,9 @@ export function Hero() {
             transition={{ duration: 0.7, delay: 0.5 }}
           >
             {[
-              { value: "5G", label: "Velocidade" },
+              { value: "4G/5G", label: "Velocidade" },
               { value: "100%", label: "Brasil" },
-              { value: "24/7", label: "Suporte" },
+              { value: "0800", label: "Suporte" },
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="font-display text-2xl font-bold text-white">{stat.value}</p>
