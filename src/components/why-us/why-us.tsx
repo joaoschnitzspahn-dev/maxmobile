@@ -59,7 +59,7 @@ export function WhyUs() {
                     <h3 className="font-display text-xl font-semibold text-white">
                       {item.title}
                     </h3>
-                    <p className="mt-3 text-sm leading-relaxed text-foreground-muted">
+                    <p className="mt-3 text-sm leading-relaxed text-foreground-muted text-justify">
                       {item.description}
                     </p>
                   </div>

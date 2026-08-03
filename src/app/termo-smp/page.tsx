@@ -40,7 +40,7 @@ export default function TermoSmpPage() {
             </p>
           </header>
 
-          <div className="prose-termo space-y-8 text-sm leading-relaxed text-foreground-muted">
+          <div className="prose-termo space-y-8 text-sm leading-relaxed text-foreground-muted text-justify">
             <section>
               <p>
                 O plano/benefício de serviço pré-pago é realizado em conjunto com
