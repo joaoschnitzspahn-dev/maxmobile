@@ -28,7 +28,7 @@ export function Plans() {
           >
             Escolha o plano ideal
           </h2>
-          <p className="mt-4 text-foreground-muted text-justify">
+          <p className="mt-4 text-center text-foreground-muted">
             Sem fidelidade. Internet sem cortes. Portabilidade com +5 GB todo mês.
           </p>
         </FadeUp>
@@ -89,7 +89,7 @@ export function Plans() {
                   {plan.benefits.map((benefit) => (
                     <li
                       key={benefit}
-                      className="flex items-start gap-2 text-sm text-foreground-muted text-justify"
+                      className="flex items-start gap-2 text-sm text-foreground-muted text-left"
                     >
                       <Check className="mt-0.5 h-4 w-4 shrink-0 text-primary" />
                       {benefit}

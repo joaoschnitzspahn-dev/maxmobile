@@ -27,7 +27,7 @@ export function CTA() {
               >
                 Pronto para a nova era da conectividade?
               </motion.h2>
-              <p className="mx-auto mt-4 max-w-lg text-justify text-white/80">
+              <p className="mx-auto mt-4 max-w-lg text-center text-white/80">
                 Junte-se a milhares de brasileiros que já escolheram a MAX MOBILE.
                 Ativação rápida, suporte humano e a melhor experiência móvel.
               </p>

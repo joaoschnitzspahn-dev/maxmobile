@@ -201,7 +201,7 @@ export function Hero() {
           </motion.h1>
 
           <motion.p
-            className="max-w-lg text-base leading-relaxed text-foreground-muted text-justify sm:text-lg"
+            className="max-w-lg text-base leading-relaxed text-foreground-muted text-left sm:text-lg"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}

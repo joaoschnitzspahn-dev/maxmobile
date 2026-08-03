@@ -46,50 +46,25 @@ body {
   overflow-x: hidden;
 }
 
-/* Texto corrido justificado */
+/* Alinhamento consistente à esquerda */
 main p,
 main li,
 footer p,
 .prose-termo p,
-.prose-termo li,
-[data-slot="accordion-content"],
-.accordion-content {
-  text-align: justify;
-  text-justify: inter-word;
+.prose-termo li {
+  text-align: left;
   text-wrap: pretty;
-  hyphens: auto;
-  -webkit-hyphens: auto;
 }
 
-/* Mantém centralizados apenas títulos e labels de seção */
-main h1,
-main h2,
-main h3,
-main h4,
-main .text-center > span,
-footer h3 {
-  text-align: inherit;
-  hyphens: manual;
+/* Seções com cabeçalho centralizado */
+main .text-center p,
+main .text-center li {
+  text-align: center;
 }
 
-/* UI compacta — sem justificar */
-nav p,
-button p,
-nav li,
-.glass p.text-[10px],
-.glass p.text-[8px],
-.glass p.text-[9px],
-p[class*="text-[8px]"],
-p[class*="text-[9px]"],
-p[class*="text-[10px]"] {
-  text-align: inherit;
-  hyphens: manual;
-}
-
-/* Hero visual / stats — alinhamento próprio */
+/* Hero visual / stats */
 [aria-label="Hero"] .relative.mx-auto p {
   text-align: center;
-  hyphens: manual;
 }
 
 ::selection {

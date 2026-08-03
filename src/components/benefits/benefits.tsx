@@ -47,7 +47,7 @@ export function Benefits() {
             Tudo que você precisa para{" "}
             <span className="gradient-text-red">conectar</span>
           </h2>
-          <p className="mt-4 text-foreground-muted text-justify">
+          <p className="mt-4 text-center text-foreground-muted">
             Tecnologia de ponta com a simplicidade que você merece.
           </p>
         </FadeUp>
@@ -66,7 +66,7 @@ export function Benefits() {
                     <h3 className="font-display text-base font-semibold text-white">
                       {benefit.title}
                     </h3>
-                    <p className="mt-2 text-sm leading-relaxed text-foreground-muted text-justify">
+                    <p className="mt-2 text-sm leading-relaxed text-foreground-muted text-left">
                       {benefit.description}
                     </p>
                   </div>

@@ -21,7 +21,7 @@ export function HowItWorks() {
           >
             Simples como deveria ser
           </h2>
-          <p className="mt-4 text-foreground-muted text-justify">
+          <p className="mt-4 text-center text-foreground-muted">
             Em quatro passos você está conectado.
           </p>
         </FadeUp>
@@ -55,7 +55,7 @@ export function HowItWorks() {
                   <h3 className="font-display text-lg font-semibold text-white">
                     {step.title}
                   </h3>
-                  <p className="mt-2 text-sm text-foreground-muted text-justify">
+                  <p className="mt-2 text-center text-sm text-foreground-muted">
                     {step.description}
                   </p>
 

@@ -27,7 +27,7 @@ export function FAQ() {
           >
             Perguntas frequentes
           </h2>
-          <p className="mt-4 text-foreground-muted text-justify">
+          <p className="mt-4 text-center text-foreground-muted">
             Tudo o que você precisa saber antes de contratar.
           </p>
         </FadeUp>

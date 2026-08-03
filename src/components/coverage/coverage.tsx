@@ -131,7 +131,7 @@ export function Coverage() {
               Conectado em{" "}
               <span className="gradient-text-red">todo o Brasil</span>
             </h2>
-            <p className="mt-4 leading-relaxed text-foreground-muted text-justify">
+            <p className="mt-4 leading-relaxed text-foreground-muted text-left">
               Infraestrutura robusta com presença em milhares de municípios.
               Do Amazonas ao Rio Grande do Sul, a MAX MOBILE garante
               conectividade onde você estiver.

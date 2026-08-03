@@ -15,7 +15,7 @@ export function Footer() {
           {/* Brand */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Logo className="h-12 w-auto sm:h-14" />
-            <p className="mt-4 max-w-xs text-sm leading-relaxed text-foreground-muted text-justify">
+            <p className="mt-4 max-w-xs text-sm leading-relaxed text-foreground-muted text-left">
               A nova geração da telefonia móvel. Conectividade premium em todo o Brasil.
             </p>
           </div>
