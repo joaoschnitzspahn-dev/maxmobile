@@ -120,7 +120,7 @@ function HeroVisual() {
         >
           <Wifi className="h-4 w-4 text-primary" />
           <div>
-            <p className="text-[10px] font-semibold text-white">45 GB</p>
+            <p className="text-[10px] font-semibold text-white">50 GB</p>
             <p className="text-[8px] text-foreground-muted">Alta velocidade</p>
           </div>
         </motion.div>

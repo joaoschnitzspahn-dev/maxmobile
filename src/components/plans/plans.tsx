@@ -64,6 +64,13 @@ export function Plans() {
                     </span>
                     <span className="text-sm text-foreground-muted">/mês</span>
                   </div>
+                  <p className="mt-2 text-xs text-foreground-muted">
+                    Anual:{" "}
+                    <span className="font-medium text-primary">
+                      12x R$ {plan.annualPrice}
+                    </span>{" "}
+                    sem juros
+                  </p>
                 </div>
 
                 <div className="mb-5 space-y-2 border-y border-white/8 py-5">
@@ -80,9 +87,6 @@ export function Plans() {
                     <span className="text-sm text-foreground-muted">SMS</span>
                     <span className="font-semibold text-white">{plan.sms}</span>
                   </div>
-                  <p className="pt-1 text-xs font-medium text-primary">
-                    {plan.portabilityBonus}
-                  </p>
                 </div>
 
                 <ul className="mb-6 flex-1 space-y-2.5">
@@ -123,7 +127,7 @@ export function Plans() {
             <a href="/termo-smp" className="text-primary hover:underline">
               Termo SMP
             </a>
-            . Valores sujeitos a alteração.
+            . Plano anual disponível no cartão em até 12x sem juros.
           </p>
         </FadeUp>
       </div>
