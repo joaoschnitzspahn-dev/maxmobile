@@ -7,7 +7,7 @@ export const SITE = {
   /** Formato wa.me: 55 + 08007002300 */
   whatsapp: "5508007002300",
   email: "contato@maxmobile.com.br",
-  phone: "0800 700 2300",
+  phone: "0800 (Humanizado) 700 2300",
   phoneRaw: "08007002300",
   address: "Brasil",
   networkProvider: "Surf Telecom S.A.",
@@ -43,9 +43,9 @@ export const BENEFITS = [
   },
   {
     icon: "Headphones",
-    title: "Suporte 0800",
+    title: "0800 (Humanizado)",
     description:
-      "Atendimento por WhatsApp e telefone no 0800 700 2300.",
+      "Atendimento humano por WhatsApp e telefone no 0800 700 2300.",
   },
   {
     icon: "Wifi",
@@ -219,7 +219,7 @@ export const WHY_US = [
     icon: "Users",
     title: "Suporte",
     description:
-      "Central 0800 700 2300 para atendimento por telefone e WhatsApp.",
+      "Central 0800 (Humanizado) 700 2300 para atendimento por telefone e WhatsApp.",
   },
   {
     icon: "CircleDollarSign",
@@ -258,7 +258,7 @@ export const FAQ_ITEMS = [
   {
     question: "Como falo com o suporte?",
     answer:
-      "Pelo WhatsApp ou telefone no 0800 700 2300. Você também pode consultar o Termo SMP no site para todas as condições do serviço.",
+      "Pelo WhatsApp ou telefone no 0800 (Humanizado) 700 2300. Você também pode consultar o Termo SMP no site para todas as condições do serviço.",
   },
 ] as const;
 
