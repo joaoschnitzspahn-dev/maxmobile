@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/logo/logo";
-import { NAV_LINKS, whatsappUrl } from "@/lib/constants";
+import { NAV_LINKS, SITE, whatsappUrl } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -71,7 +71,13 @@ export function Navbar() {
               </a>
             </Button>
             <Button size="sm" asChild>
-              <a href="/#planos">Contratar</a>
+              <a
+                href={SITE.checkoutUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Contratar
+              </a>
             </Button>
           </div>
 
@@ -140,7 +146,12 @@ export function Navbar() {
                   </a>
                 </Button>
                 <Button asChild>
-                  <a href="/#planos" onClick={() => setMobileOpen(false)}>
+                  <a
+                    href={SITE.checkoutUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    onClick={() => setMobileOpen(false)}
+                  >
                     Contratar
                   </a>
                 </Button>

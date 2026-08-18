@@ -3,7 +3,7 @@
 import { Check, Star } from "lucide-react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { PLANS, whatsappUrl } from "@/lib/constants";
+import { PLANS, SITE } from "@/lib/constants";
 import { FadeUp, StaggerContainer, StaggerItem } from "@/components/animations/fade-up";
 import { cn } from "@/lib/utils";
 
@@ -107,9 +107,7 @@ export function Plans() {
                   asChild
                 >
                   <a
-                    href={whatsappUrl(
-                      `Olá! Tenho interesse no plano ${plan.name} (${plan.internet}) da MAX MOBILE.`
-                    )}
+                    href={SITE.checkoutUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                   >

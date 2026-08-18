@@ -12,6 +12,8 @@ export const SITE = {
   address: "Brasil",
   networkProvider: "Surf Telecom S.A.",
   networkCnpj: "10.455.746/0001-43",
+  /** Link de venda direta / contratação de planos */
+  checkoutUrl: "https://compreaqui.maxmobiletech.com.br/marcamax",
 } as const;
 
 export const NAV_LINKS = [
