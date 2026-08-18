@@ -243,7 +243,7 @@ export function Hero() {
             {[
               { value: "4G/5G", label: "Velocidade" },
               { value: "100%", label: "Brasil" },
-              { value: "0800", label: "Humanizado" },
+              { value: "0800", label: "humanizado" },
             ].map((stat) => (
               <div key={stat.label}>
                 <p className="font-display text-2xl font-bold text-white">{stat.value}</p>
